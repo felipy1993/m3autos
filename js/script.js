@@ -147,7 +147,7 @@ function renderCarros(data = carros) {
 
     card.innerHTML = `
       <div class="card-image">
-        <img src="${capa}" alt="${carro.marca} ${carro.modelo}">
+        <img src="${capa}" alt="${carro.marca} ${carro.modelo}" loading="lazy" crossorigin="anonymous" onerror="this.src='https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=800&q=60'">
         <div class="card-badge ${carro.badge === 'NOVIDADE' ? 'novidade' : carro.badge === 'PROMOÇÃO' ? 'promocao' : ''}">${carro.badge || 'NOVIDADE'}</div>
       </div>
       <div class="info">

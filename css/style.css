@@ -386,6 +386,9 @@ section {
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
+  background: rgba(255,255,255,0.05);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .card:hover img {
