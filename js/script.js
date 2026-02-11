@@ -223,9 +223,20 @@ function attachCardEvents() {
   }, { threshold: 0.1 });
   cards.forEach(card => observer.observe(card));
 
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', function(e) {
+      // Se clicou em algum botão de admin ou no whatsapp, não abre o modal aqui
+      if (e.target.closest('.admin-card-actions') || e.target.closest('.btn-whatsapp-click')) return;
+      
+      const carId = this.dataset.id;
+      openCarModal(carId);
+    });
+  });
+
   document.querySelectorAll('.detalhes').forEach(btn => {
     btn.addEventListener('click', function(e) {
       e.preventDefault();
+      e.stopPropagation(); // Evita disparar o clique do card pai
       const carId = this.dataset.id;
       openCarModal(carId);
     });
