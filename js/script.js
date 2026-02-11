@@ -153,27 +153,11 @@ function renderCarros(data = carros) {
       <div class="info">
         <div class="card-header">
           <h4>${carro.marca} ${carro.modelo}</h4>
-          <p class="card-subtitle">${carro.ano} • ${carro.motor || ''} • ${carro.transmissao} • ${carro.combustivel}</p>
+          <p class="card-subtitle">${carro.ano} • ${carro.transmissao} • ${carro.combustivel}</p>
           <div class="card-meta">
             <span><i class="fas fa-tachometer-alt"></i> ${carro.km}</span>
             <span><i class="fas fa-palette"></i> ${carro.cor}</span>
-            <span><i class="fas fa-door-closed"></i> ${carro.portas} portas</span>
           </div>
-        </div>
-        
-        <div class="equipamentos">
-          <h5><i class="fas fa-list-check"></i> Principais Equipamentos</h5>
-          <div class="equipamentos-grid">
-            ${equipamentosPreview.map(eq => `
-              <div class="equipamento-item">
-                <i class="fas fa-check"></i> ${eq}
-              </div>
-            `).join('')}
-          </div>
-          ${(carro.equipamentos && carro.equipamentos.length > 6) ? 
-            `<div class="equipamento-item" style="margin-top: 0.5rem;">
-              <i class="fas fa-ellipsis-h"></i> +${carro.equipamentos.length - 6} itens
-            </div>` : ''}
         </div>
         
         <div class="preco-container">
