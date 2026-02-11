@@ -197,15 +197,21 @@
       </div>
       
       <div class="form-group">
-        <label for="carImageFile">Fotos do Veículo (Selecione várias) *</label>
+        <label for="carImageFile">Fotos do Veículo (Upload) *</label>
         <div class="image-upload-container">
-          <input type="file" id="carImageFile" accept="image/*" multiple required>
+          <input type="file" id="carImageFile" accept="image/*" multiple>
           <div class="image-preview" id="imagePreview">
             <i class="fas fa-camera"></i>
             <span>Clique para selecionar fotos</span>
           </div>
         </div>
         <div id="previewGallery" class="preview-gallery"></div>
+      </div>
+
+      <div class="form-group full-width">
+        <label for="carImageUrl">Ou use um Link de Imagem (URL)</label>
+        <input type="text" id="carImageUrl" placeholder="Ex: https://site.com/foto-do-carro.jpg">
+        <small style="color: var(--muted);">Útil se o seu Firebase Storage estiver desativado.</small>
       </div>
       
       <div class="form-group full-width">

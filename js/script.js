@@ -548,17 +548,25 @@ async function handleCarSubmit(event) {
 
   try {
     let finalImageUrls = [...existingImageUrls];
+    const urlInput = document.getElementById('carImageUrl').value;
 
     // Upload de novas imagens se houver
     if (selectedFiles.length > 0) {
-      const newUrls = await uploadCarImages(selectedFiles);
-      if (editingCarId) {
-        // Se estiver editando, podemos decidir se substituímos ou adicionamos. 
-        // Aqui vamos substituir por simplicidade, ou manter as velhas se não houver novas.
+      try {
+        const newUrls = await uploadCarImages(selectedFiles);
         finalImageUrls = newUrls;
-      } else {
-        finalImageUrls = newUrls;
+      } catch (uploadError) {
+        console.error("Erro no upload (possivelmente Storage desativado):", uploadError);
+        // Se houver erro no upload e tiver URL, usa a URL
+        if (urlInput) {
+          finalImageUrls = [urlInput];
+        } else {
+          throw new Error("Não foi possível fazer o upload e nenhuma URL foi fornecida.");
+        }
       }
+    } else if (urlInput) {
+      // Se não tem arquivos mas tem URL
+      finalImageUrls = [urlInput];
     }
 
     if (finalImageUrls.length === 0) {
@@ -594,6 +602,7 @@ async function handleCarSubmit(event) {
     editingCarId = null;
     selectedFiles = [];
     existingImageUrls = [];
+    document.getElementById('carImageUrl').value = '';
     imagePreview.style.backgroundImage = 'none';
     imagePreview.classList.remove('has-image');
     previewGallery.innerHTML = '';
