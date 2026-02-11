@@ -26,10 +26,11 @@ import {
   uploadBytes, 
   getDownloadURL 
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
-// Configuração direta do Firebase (Hardcoded para evitar erros na Vercel)
+// Configuração direta do Firebase (Oficial do Console)
 const firebaseConfig = {
   apiKey: "AIzaSyBg1xv3BfqyzwAvjgseudTn4CPcjX0ynFU",
   authDomain: "m3-autos.firebaseapp.com",
+  databaseURL: "https://m3-autos-default-rtdb.firebaseio.com",
   projectId: "m3-autos",
   storageBucket: "m3-autos.firebasestorage.app",
   messagingSenderId: "668732505794",
