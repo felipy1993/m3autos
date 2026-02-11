@@ -508,6 +508,7 @@ function prepareEditCar(carId) {
   document.getElementById('carKM').value = carro.km;
   document.getElementById('carColor').value = carro.cor;
   document.getElementById('carEngine').value = carro.motor || '';
+  document.getElementById('carDoors').value = carro.portas || '4';
   document.getElementById('carPrice').value = carro.preco;
   document.getElementById('carDescription').value = carro.descricao;
 
@@ -587,6 +588,7 @@ async function handleCarSubmit(event) {
       km: document.getElementById('carKM').value || 'N/A',
       cor: document.getElementById('carColor').value || 'Não informada',
       motor: document.getElementById('carEngine').value,
+      portas: document.getElementById('carDoors').value,
       preco: document.getElementById('carPrice').value,
       descricao: document.getElementById('carDescription').value || '',
       equipamentos: Array.from(document.querySelectorAll('.equipamentos-checklist input:checked')).map(cb => cb.value),
