@@ -153,7 +153,7 @@ function renderCarros(data = carros) {
       <div class="info">
         <div class="card-header">
           <h4>${carro.modelo}</h4>
-          <p class="card-subtitle">${carro.ano} • ${carro.transmissao} • ${carro.combustivel}</p>
+          <p class="card-subtitle">${carro.ano} • ${carro.motor || ''} • ${carro.transmissao} • ${carro.combustivel}</p>
           <div class="card-meta">
             <span><i class="fas fa-tachometer-alt"></i> ${carro.km}</span>
             <span><i class="fas fa-palette"></i> ${carro.cor}</span>
@@ -338,7 +338,7 @@ function openCarModal(carId) {
   
   // Preencher modal com dados do carro
   document.getElementById('modalTitle').textContent = carro.modelo;
-  document.getElementById('modalSubtitle').textContent = carro.descricao;
+  document.getElementById('modalSubtitle').textContent = `${carro.ano} • ${carro.motor || ''} • ${carro.transmissao} • ${carro.combustivel}`;
   document.getElementById('modalYear').textContent = carro.ano;
   document.getElementById('modalKM').textContent = carro.km;
   document.getElementById('modalTransmission').textContent = carro.transmissao;
@@ -506,6 +506,7 @@ function prepareEditCar(carId) {
   document.getElementById('carFuel').value = carro.combustivel;
   document.getElementById('carKM').value = carro.km;
   document.getElementById('carColor').value = carro.cor;
+  document.getElementById('carEngine').value = carro.motor || '';
   document.getElementById('carPrice').value = carro.preco;
   document.getElementById('carDescription').value = carro.descricao;
 
@@ -583,6 +584,7 @@ async function handleCarSubmit(event) {
       combustivel: document.getElementById('carFuel').value,
       km: document.getElementById('carKM').value || 'N/A',
       cor: document.getElementById('carColor').value || 'Não informada',
+      motor: document.getElementById('carEngine').value,
       preco: document.getElementById('carPrice').value,
       descricao: document.getElementById('carDescription').value || '',
       equipamentos: Array.from(document.querySelectorAll('.equipamentos-checklist input:checked')).map(cb => cb.value),
