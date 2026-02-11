@@ -147,12 +147,12 @@ function renderCarros(data = carros) {
 
     card.innerHTML = `
       <div class="card-image">
-        <img src="${capa}" alt="${carro.modelo}">
+        <img src="${capa}" alt="${carro.marca} ${carro.modelo}">
         <div class="card-badge ${carro.badge === 'NOVIDADE' ? 'novidade' : carro.badge === 'PROMOÇÃO' ? 'promocao' : ''}">${carro.badge || 'NOVIDADE'}</div>
       </div>
       <div class="info">
         <div class="card-header">
-          <h4>${carro.modelo}</h4>
+          <h4>${carro.marca} ${carro.modelo}</h4>
           <p class="card-subtitle">${carro.ano} • ${carro.motor || ''} • ${carro.transmissao} • ${carro.combustivel}</p>
           <div class="card-meta">
             <span><i class="fas fa-tachometer-alt"></i> ${carro.km}</span>
@@ -337,7 +337,7 @@ function openCarModal(carId) {
   updateGalleryImage();
   
   // Preencher modal com dados do carro
-  document.getElementById('modalTitle').textContent = carro.modelo;
+  document.getElementById('modalTitle').textContent = `${carro.marca} ${carro.modelo}`;
   document.getElementById('modalSubtitle').textContent = `${carro.ano} • ${carro.motor || ''} • ${carro.transmissao} • ${carro.combustivel}`;
   document.getElementById('modalYear').textContent = carro.ano;
   document.getElementById('modalKM').textContent = carro.km;
@@ -500,6 +500,7 @@ function prepareEditCar(carId) {
   editingCarId = carId;
   
   // Preencher campos
+  document.getElementById('carBrand').value = carro.marca || '';
   document.getElementById('carModel').value = carro.modelo;
   document.getElementById('carYear').value = carro.ano;
   document.getElementById('carTransmission').value = carro.transmissao;
@@ -578,8 +579,9 @@ async function handleCarSubmit(event) {
 
     // Coletar dados do formulário
     const carData = {
+      marca: document.getElementById('carBrand').value,
       modelo: document.getElementById('carModel').value,
-      ano: parseInt(document.getElementById('carYear').value),
+      ano: document.getElementById('carYear').value,
       transmissao: document.getElementById('carTransmission').value,
       combustivel: document.getElementById('carFuel').value,
       km: document.getElementById('carKM').value || 'N/A',

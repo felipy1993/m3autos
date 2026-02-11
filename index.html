@@ -147,13 +147,33 @@
     <h4><i class="fas fa-tools"></i> Adicionar Novo Veículo</h4>
     <form class="admin-form" id="carForm">
       <div class="form-group">
+        <label for="carBrand">Marca do Veículo *</label>
+        <select id="carBrand" required>
+          <option value="" disabled selected>Selecione a marca...</option>
+          <option>Toyota</option>
+          <option>Honda</option>
+          <option>Volkswagen</option>
+          <option>Chevrolet</option>
+          <option>Fiat</option>
+          <option>Jeep</option>
+          <option>Hyundai</option>
+          <option>BMW</option>
+          <option>Mercedes-Benz</option>
+          <option>Audi</option>
+          <option>Ford</option>
+          <option>Renault</option>
+          <option>Outra</option>
+        </select>
+      </div>
+
+      <div class="form-group">
         <label for="carModel">Modelo do Veículo *</label>
-        <input type="text" id="carModel" placeholder="Ex: BMW 320i" required>
+        <input type="text" id="carModel" placeholder="Ex: Golf" required>
       </div>
       
       <div class="form-group">
-        <label for="carYear">Ano *</label>
-        <input type="number" id="carYear" min="2000" max="2026" value="2022" required>
+        <label for="carYear">Ano (Modelo/Fabricação) *</label>
+        <input type="text" id="carYear" placeholder="Ex: 2021/2022" required>
       </div>
       
       <div class="form-group">
