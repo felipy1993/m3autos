@@ -26,15 +26,15 @@ import {
   uploadBytes, 
   getDownloadURL 
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
-// Configuração direta do Firebase (Oficial do Console)
+// Configuração via Variáveis de Ambiente (Melhor para Vercel)
 const firebaseConfig = {
-  apiKey: "AIzaSyBg1xv3BfqyzwAvjgseudTn4CPcjX0ynFU",
-  authDomain: "m3-autos.firebaseapp.com",
-  databaseURL: "https://m3-autos-default-rtdb.firebaseio.com",
-  projectId: "m3-autos",
-  storageBucket: "m3-autos.firebasestorage.app",
-  messagingSenderId: "668732505794",
-  appId: "1:668732505794:web:e36ca9090d4723db02855b"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
 // Inicializar Firebase
