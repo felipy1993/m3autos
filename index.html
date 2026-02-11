@@ -25,8 +25,8 @@
   
   <nav id="mainNav">
     <a href="#inicio" class="active">Início</a>
-    <a href="#sobre">Diferenciais</a>
     <a href="#estoque">Estoque</a>
+    <a href="#sobre">Diferenciais</a>
     <a href="#contato">Contato</a>
     <a href="#" id="adminToggle" style="color: var(--yellow);"><i class="fas fa-cog"></i> Admin</a>
   </nav>
@@ -56,6 +56,50 @@
         <i class="fas fa-phone-alt"></i> Fale conosco
       </a>
     </div>
+  </div>
+</section>
+
+<section id="estoque">
+  <div class="section-header reveal">
+    <h3 class="section-title" id="stockTitle">Veículos em Destaque</h3>
+    <p class="section-subtitle" id="stockSubtitle">Confira nossa seleção de carros premium com informações detalhadas e equipamentos completos.</p>
+  </div>
+  
+  <!-- Barra de Filtros -->
+  <div class="filter-container reveal">
+    <div class="filter-box">
+      <i class="fas fa-search"></i>
+      <input type="text" id="filterModel" placeholder="Buscar por modelo...">
+    </div>
+    <div class="filter-box">
+      <i class="fas fa-car"></i>
+      <select id="filterBrand">
+        <option value="">Todas as Marcas</option>
+        <option>Toyota</option>
+        <option>Honda</option>
+        <option>Volkswagen</option>
+        <option>Chevrolet</option>
+        <option>Fiat</option>
+        <option>Jeep</option>
+        <option>Hyundai</option>
+        <option>BMW</option>
+        <option>Mercedes</option>
+      </select>
+    </div>
+    <div class="filter-box">
+      <i class="fas fa-dollar-sign"></i>
+      <select id="filterPrice">
+        <option value="">Faixa de Preço</option>
+        <option value="0-100000">Até R$ 100k</option>
+        <option value="100000-200000">R$ 100k - R$ 200k</option>
+        <option value="200000-9999999">Acima de R$ 200k</option>
+      </select>
+    </div>
+    <button class="filter-btn" id="btnApplyFilters">Filtrar</button>
+  </div>
+  
+  <div class="carros" id="carrosContainer">
+    <!-- Os cards serão gerados dinamicamente pelo JavaScript -->
   </div>
 </section>
 
@@ -431,49 +475,7 @@
   </div>
 </section>
 
-<section id="estoque">
-  <div class="section-header reveal">
-    <h3 class="section-title" id="stockTitle">Veículos em Destaque</h3>
-    <p class="section-subtitle" id="stockSubtitle">Confira nossa seleção de carros premium com informações detalhadas e equipamentos completos.</p>
-  </div>
-  
-  <!-- Barra de Filtros -->
-  <div class="filter-container reveal">
-    <div class="filter-box">
-      <i class="fas fa-search"></i>
-      <input type="text" id="filterModel" placeholder="Buscar por modelo...">
-    </div>
-    <div class="filter-box">
-      <i class="fas fa-car"></i>
-      <select id="filterBrand">
-        <option value="">Todas as Marcas</option>
-        <option>Toyota</option>
-        <option>Honda</option>
-        <option>Volkswagen</option>
-        <option>Chevrolet</option>
-        <option>Fiat</option>
-        <option>Jeep</option>
-        <option>Hyundai</option>
-        <option>BMW</option>
-        <option>Mercedes</option>
-      </select>
-    </div>
-    <div class="filter-box">
-      <i class="fas fa-dollar-sign"></i>
-      <select id="filterPrice">
-        <option value="">Faixa de Preço</option>
-        <option value="0-100000">Até R$ 100k</option>
-        <option value="100000-200000">R$ 100k - R$ 200k</option>
-        <option value="200000-9999999">Acima de R$ 200k</option>
-      </select>
-    </div>
-    <button class="filter-btn" id="btnApplyFilters">Filtrar</button>
-  </div>
-  
-  <div class="carros" id="carrosContainer">
-    <!-- Os cards serão gerados dinamicamente pelo JavaScript -->
-  </div>
-</section>
+
 
 <section class="cta" id="contato">
   <h3 id="ctaTitle">Gostou de algum veículo?</h3>
