@@ -95,6 +95,8 @@ export function subscribeToCars(callback) {
       ...doc.data()
     }));
     callback(cars);
+  }, (error) => {
+    console.error("Erro ao assinar carros:", error);
   });
 }
 
