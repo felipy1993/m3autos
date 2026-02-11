@@ -25,7 +25,15 @@ import {
   uploadBytes, 
   getDownloadURL 
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
-import { firebaseConfig } from "./firebase-config.js";
+// Configuração direta do Firebase (Hardcoded para evitar erros na Vercel)
+const firebaseConfig = {
+  apiKey: "AIzaSyBg1xv3BfqyzwAvjgseudTn4CPcjX0ynFU",
+  authDomain: "m3-autos.firebaseapp.com",
+  projectId: "m3-autos",
+  storageBucket: "m3-autos.firebasestorage.app",
+  messagingSenderId: "668732505794",
+  appId: "1:668732505794:web:e36ca9090d4723db02855b"
+};
 
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);
