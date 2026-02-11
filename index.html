@@ -210,8 +210,18 @@
 
       <div class="form-group full-width">
         <label for="carImageUrl">Ou use um Link de Imagem (URL)</label>
-        <input type="text" id="carImageUrl" placeholder="Ex: https://site.com/foto-do-carro.jpg">
-        <small style="color: var(--muted);">Útil se o seu Firebase Storage estiver desativado.</small>
+        <div class="url-helper">
+          <p><i class="fas fa-info-circle"></i> Como o seu armazenamento está em manutenção, use o site <strong>PostImages</strong> para converter suas fotos em links:</p>
+          <ol>
+            <li>Clique no botão abaixo para abrir o site.</li>
+            <li>Suba sua foto e escolha a opção <strong>"Link direto"</strong>.</li>
+            <li>Cole o link no campo abaixo.</li>
+          </ol>
+          <a href="https://postimages.org/" target="_blank" class="btn-external-helper">
+            <i class="fas fa-external-link-alt"></i> Abrir PostImages.org
+          </a>
+        </div>
+        <input type="text" id="carImageUrl" placeholder="Cole aqui o 'Link direto' (ex: https://i.postimg.cc/...)">
       </div>
       
       <div class="form-group full-width">

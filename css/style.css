@@ -916,6 +916,56 @@ section {
   border: 1px solid rgba(255,255,255,0.2);
 }
 
+.url-helper {
+  background: rgba(30,144,255,0.1);
+  border: 1px solid rgba(30,144,255,0.2);
+  padding: 1.2rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.url-helper p {
+  color: var(--text);
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.url-helper ol {
+  margin-left: 1.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.2rem;
+}
+
+.url-helper li {
+  margin-bottom: 0.4rem;
+}
+
+.btn-external-helper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.5rem;
+  background: var(--blue);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  transition: var(--transition);
+  box-shadow: 0 5px 15px rgba(30,144,255,0.3);
+}
+
+.btn-external-helper:hover {
+  transform: translateY(-3px);
+  background: var(--blue2);
+  box-shadow: 0 10px 20px rgba(30,144,255,0.4);
+}
+
+
 /* Modal Gallery */
 .modal-gallery-container {
   position: relative;
