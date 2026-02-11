@@ -28,9 +28,15 @@ html {
 
 body {
   background: var(--bg);
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(30, 144, 255, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(0, 94, 255, 0.05) 0%, transparent 40%),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
   color: var(--text);
   overflow-x: hidden;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 /* ===== HEADER ===== */
@@ -118,12 +124,12 @@ nav a.active::after {
 
 /* ===== HERO ===== */
 .hero {
-  height: 100vh;
+  height: 85vh;
   position: relative;
   display: flex;
   align-items: center;
-  padding: 0 10%;
-  overflow: hidden; /* Importante para cortar o vídeo */
+  padding: 0 8%;
+  overflow: hidden;
 }
 
 /* Vídeo de fundo */
@@ -218,7 +224,7 @@ nav a.active::after {
 
 /* ===== SECTION ===== */
 section {
-  padding: 4rem 5%;
+  padding: 3rem 8%;
 }
 
 .section-title {
@@ -246,8 +252,8 @@ section {
 .section-subtitle {
   text-align: center;
   color: var(--muted);
-  margin-bottom: 4rem;
-  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  font-size: 1rem;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
@@ -256,9 +262,9 @@ section {
 /* ===== DIFERENCIAIS ===== */
 .features {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
 
 .feature {
