@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M3 Autos - Concessionária Premium</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon"><i class="fas fa-car"></i></div>
+    <h1 id="headerLogoName">M3 <span>Autos</span></h1>
+  </div>
+  
+  <button class="menu-toggle" id="menuToggle">
+    <i class="fas fa-bars"></i>
+  </button>
+  
+  <nav id="mainNav">
+    <a href="#inicio" class="active">Início</a>
+    <a href="#sobre">Diferenciais</a>
+    <a href="#estoque">Estoque</a>
+    <a href="#contato">Contato</a>
+    <a href="#" id="adminToggle" style="color: var(--yellow);"><i class="fas fa-cog"></i> Admin</a>
+  </nav>
+</header>
+
+<section class="hero" id="inicio">
+  <!-- 
+    PARA TROCAR O VÍDEO:
+    1. Baixe seu vídeo (mp4) em sites como Pexels.com ou Pixabay.com
+    2. Coloque o arquivo na pasta "assets/video/" do projeto
+    3. Mude o src abaixo para: "assets/video/seu-video.mp4"
+  -->
+  <video autoplay muted loop playsinline class="hero-video" poster="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2694&q=80">
+    <!-- Exemplo de vídeo local: src="assets/video/meu-video.mp4" -->
+    <source src="assets/meu-video.mp4" type="video/mp4">
+    Seu navegador não suporta vídeos HTML5.
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h2 id="heroTitle">Seu próximo carro começa na <span>M3 Autos</span></h2>
+    <p id="heroSubtitle">Veículos premium, procedência garantida e uma experiência de compra simples, rápida e segura. Oferecemos as melhores condições de financiamento e garantia estendida.</p>
+    <div class="hero-buttons">
+      <a href="#estoque">
+        <i class="fas fa-car"></i> Ver veículos disponíveis
+      </a>
+      <a href="#contato" class="secondary">
+        <i class="fas fa-phone-alt"></i> Fale conosco
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="reveal">
+    <h3 class="section-title" id="aboutTitle">Por que escolher a M3 Autos?</h3>
+    <p class="section-subtitle" id="aboutText">Oferecemos uma experiência diferenciada na compra do seu veículo, com transparência e qualidade em primeiro lugar.</p>
+  </div>
+  
+  <div class="features reveal">
+    <div class="feature">
+      <div class="feature-icon"><i class="fas fa-car-side"></i></div>
+      <h4>Veículos Selecionados</h4>
+      <p>Somente carros revisados e com procedência, passando por rigorosa inspeção técnica.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon"><i class="fas fa-medal"></i></div>
+      <h4>Qualidade Garantida</h4>
+      <p>Transparência total em cada negociação com laudo técnico e histórico do veículo.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon"><i class="fab fa-whatsapp"></i></div>
+      <h4>Atendimento Direto</h4>
+      <p>Contato rápido via WhatsApp, sem intermediários, com atendimento personalizado.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+      <h4>Compra Segura</h4>
+      <p>Processo simples e confiável do início ao fim, com toda documentação regularizada.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Painel Admin (Simulação) -->
+<div class="admin-panel" id="adminPanel">
+  <div class="admin-tabs">
+    <button class="tab-btn active" data-tab="dashboard">
+      <i class="fas fa-chart-line"></i> Dashboard
+    </button>
+    <button class="tab-btn" data-tab="veiculos">
+      <i class="fas fa-car"></i> Veículos
+    </button>
+    <button class="tab-btn" data-tab="leads">
+      <i class="fas fa-users"></i> Leads
+    </button>
+    <button class="tab-btn" data-tab="config">
+      <i class="fas fa-cog"></i> Configurações
+    </button>
+    <button class="tab-btn" data-tab="conteudo">
+      <i class="fas fa-edit"></i> Conteúdo
+    </button>
+  </div>
+
+  <div class="tab-content active" id="tab-dashboard">
+    <h4><i class="fas fa-chart-pie"></i> Estatísticas do Estoque</h4>
+    <div class="dashboard-grid">
+      <div class="stat-card">
+        <i class="fas fa-car"></i>
+        <div class="stat-info">
+          <span class="stat-value" id="statTotalCars">0</span>
+          <span class="stat-label">Total em Estoque</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-dollar-sign"></i>
+        <div class="stat-info">
+          <span class="stat-value" id="statTotalValue">R$ 0</span>
+          <span class="stat-label">Valor do Pátio</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-check-circle"></i>
+        <div class="stat-info">
+          <span class="stat-value" id="statSoldCars">0</span>
+          <span class="stat-label">Veículos Vendidos</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-tag"></i>
+        <div class="stat-info">
+          <span class="stat-value" id="statAvailableCars">0</span>
+          <span class="stat-label">Disponíveis</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="tab-veiculos">
+    <h4><i class="fas fa-tools"></i> Adicionar Novo Veículo</h4>
+    <form class="admin-form" id="carForm">
+      <div class="form-group">
+        <label for="carModel">Modelo do Veículo *</label>
+        <input type="text" id="carModel" placeholder="Ex: BMW 320i" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="carYear">Ano *</label>
+        <input type="number" id="carYear" min="2000" max="2026" value="2022" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="carTransmission">Transmissão *</label>
+        <select id="carTransmission" required>
+          <option value="Automático">Automático</option>
+          <option value="Manual">Manual</option>
+          <option value="Automático Sequencial">Automático Sequencial</option>
+          <option value="CVT">CVT</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="carFuel">Combustível *</label>
+        <select id="carFuel" required>
+          <option value="" disabled selected>Selecione...</option>
+          <option value="Flex">Flex (Gasolina/Álcool)</option>
+          <option value="Gasolina">Gasolina</option>
+          <option value="Álcool">Álcool (Etanol)</option>
+          <option value="Diesel">Diesel</option>
+          <option value="Híbrido">Híbrido</option>
+          <option value="Híbrido Plug-in">Híbrido Plug-in</option>
+          <option value="Elétrico">Elétrico</option>
+          <option value="GNV">GNV</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="carKM">Quilometragem</label>
+        <input type="text" id="carKM" placeholder="Ex: 45.000 km">
+      </div>
+      
+      <div class="form-group">
+        <label for="carColor">Cor</label>
+        <input type="text" id="carColor" placeholder="Ex: Prata">
+      </div>
+      
+      <div class="form-group">
+        <label for="carPrice">Preço *</label>
+        <input type="text" id="carPrice" placeholder="Ex: R$ 189.900" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="carImageFile">Fotos do Veículo (Selecione várias) *</label>
+        <div class="image-upload-container">
+          <input type="file" id="carImageFile" accept="image/*" multiple required>
+          <div class="image-preview" id="imagePreview">
+            <i class="fas fa-camera"></i>
+            <span>Clique para selecionar fotos</span>
+          </div>
+        </div>
+        <div id="previewGallery" class="preview-gallery"></div>
+      </div>
+      
+      <div class="form-group full-width">
+        <label for="carDescription">Descrição</label>
+        <textarea id="carDescription" placeholder="Descreva o veículo..."></textarea>
+      </div>
+      
+      <div class="form-group full-width">
+        <label>Equipamentos e Opcionais</label>
+        <div class="equipamentos-checklist">
+          <div class="checkbox-item">
+            <input type="checkbox" id="eq1" value="Ar condicionado">
+            <label for="eq1">Ar condicionado</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="eq2" value="Vidros elétricos">
+            <label for="eq2">Vidros elétricos</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="eq3" value="Trava elétrica">
+            <label for="eq3">Trava elétrica</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="eq4" value="Direção hidráulica">
+            <label for="eq4">Direção hidráulica</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="eq5" value="Airbag">
+            <label for="eq5">Airbag</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="eq6" value="ABS">
+            <label for="eq6">ABS</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="eq7" value="Bancos de couro">
+            <label for="eq7">Bancos de couro</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="eq8" value="Sensor de estacionamento">
+            <label for="eq8">Sensor de estacionamento</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="eq9" value="Câmera de ré">
+            <label for="eq9">Câmera de ré</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="eq10" value="GPS">
+            <label for="eq10">GPS</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="eq11" value="Bluetooth">
+            <label for="eq11">Bluetooth</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="eq12" value="Piloto automático">
+            <label for="eq12">Piloto automático</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="eq13" value="Controle de tração">
+            <label for="eq13">Controle de tração</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="eq14" value="Controle de estabilidade">
+            <label for="eq14">Controle de estabilidade</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="eq15" value="Teto solar">
+            <label for="eq15">Teto solar</label>
+          </div>
+        </div>
+      </div>
+      
+      <button type="submit" class="admin-submit">Adicionar Veículo</button>
+    </form>
+  </div>
+
+  <div class="tab-content" id="tab-conteudo">
+    <div class="content-edit-info">
+      <i class="fas fa-info-circle"></i>
+      <p>O modo de edição de conteúdo está <strong>ativo</strong> em toda a página. Clique diretamente nos textos do site para alterar o conteúdo ou a cor e use o botão "Salvar Tudo" lá embaixo para confirmar as mudanças.</p>
+    </div>
+  </div>
+
+  <div class="tab-content" id="tab-leads">
+    <h4><i class="fas fa-headset"></i> Propostas e Contatos Recentes</h4>
+    <div class="leads-table-container">
+      <table class="leads-table">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Cliente</th>
+            <th>Veículo de Interesse</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="leadsTableBody">
+          <!-- Gerado via JS -->
+          <tr>
+            <td colspan="4" style="text-align:center; padding: 2rem;">Carregando propostas...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+    <h4><i class="fas fa-cogs"></i> Configurações da Loja</h4>
+    <div class="admin-form">
+      <div class="form-group">
+        <label for="storeWhatsapp">WhatsApp da Loja (Somente números)</label>
+        <div class="input-with-icon">
+          <i class="fab fa-whatsapp"></i>
+          <input type="text" id="storeWhatsapp" placeholder="Ex: 5511999999999">
+        </div>
+        <small style="color: var(--muted); margin-top: 0.5rem; display: block;">
+          Este número será usado em todos os botões de contato do site.
+        </small>
+      </div>
+      <button type="button" id="saveConfigBtn" class="admin-submit" style="background: var(--blue);">Salvar Configurações</button>
+    </div>
+  </div>
+</div>
+
+</section>
+
+<section class="brands-section">
+  <div class="brands-container">
+    <div class="brand-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Toyota_carlogo.svg/1200px-Toyota_carlogo.svg.png" alt="Toyota">
+      Toyota
+    </div>
+    <div class="brand-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Honda_Logo.svg/1200px-Honda_Logo.svg.png" alt="Honda">
+      Honda
+    </div>
+    <div class="brand-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Volkswagen_logo_2019.svg/1200px-Volkswagen_logo_2019.svg.png" alt="Volkswagen">
+      Volkswagen
+    </div>
+    <div class="brand-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Chevrolet-logo.png/1200px-Chevrolet-logo.png" alt="Chevrolet">
+      Chevrolet
+    </div>
+    <div class="brand-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Fiat_Automobiles_logo.svg/1200px-Fiat_Automobiles_logo.svg.png" alt="Fiat">
+      Fiat
+    </div>
+    <div class="brand-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Jeep_Logo.svg" alt="Jeep">
+      Jeep
+    </div>
+    <div class="brand-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Hyundai_Motor_Company_logo.svg/1200px-Hyundai_Motor_Company_logo.svg.png" alt="Hyundai">
+      Hyundai
+    </div>
+    <div class="brand-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg" alt="BMW">
+      BMW
+    </div>
+    <div class="brand-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Mercedes-Benz_Logo_2010.svg" alt="Mercedes">
+      Mercedes
+    </div>
+  </div>
+</section>
+
+<section id="estoque">
+  <div class="section-header reveal">
+    <h3 class="section-title" id="stockTitle">Veículos em Destaque</h3>
+    <p class="section-subtitle" id="stockSubtitle">Confira nossa seleção de carros premium com informações detalhadas e equipamentos completos.</p>
+  </div>
+  
+  <!-- Barra de Filtros -->
+  <div class="filter-container reveal">
+    <div class="filter-box">
+      <i class="fas fa-search"></i>
+      <input type="text" id="filterModel" placeholder="Buscar por modelo...">
+    </div>
+    <div class="filter-box">
+      <i class="fas fa-car"></i>
+      <select id="filterBrand">
+        <option value="">Todas as Marcas</option>
+        <option>Toyota</option>
+        <option>Honda</option>
+        <option>Volkswagen</option>
+        <option>Chevrolet</option>
+        <option>Fiat</option>
+        <option>Jeep</option>
+        <option>Hyundai</option>
+        <option>BMW</option>
+        <option>Mercedes</option>
+      </select>
+    </div>
+    <div class="filter-box">
+      <i class="fas fa-dollar-sign"></i>
+      <select id="filterPrice">
+        <option value="">Faixa de Preço</option>
+        <option value="0-100000">Até R$ 100k</option>
+        <option value="100000-200000">R$ 100k - R$ 200k</option>
+        <option value="200000-9999999">Acima de R$ 200k</option>
+      </select>
+    </div>
+    <button class="filter-btn" id="btnApplyFilters">Filtrar</button>
+  </div>
+  
+  <div class="carros" id="carrosContainer">
+    <!-- Os cards serão gerados dinamicamente pelo JavaScript -->
+  </div>
+</section>
+
+<section class="cta" id="contato">
+  <h3 id="ctaTitle">Gostou de algum veículo?</h3>
+  <p id="ctaSubtitle">Entre em contato agora mesmo e fale direto com a M3 Autos. Nossa equipe está pronta para oferecer as melhores condições.</p>
+  <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20os%20veículos%20da%20M3%20Autos" target="_blank">
+    <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+  </a>
+</section>
+
+<!-- Modal de Detalhes -->
+<div class="modal-overlay" id="carModal">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="modal-content">
+      <div class="modal-gallery-container">
+        <div class="modal-image" id="modalImage"></div>
+        <button class="gallery-btn prev" id="btnPrevImage"><i class="fas fa-chevron-left"></i></button>
+        <button class="gallery-btn next" id="btnNextImage"><i class="fas fa-chevron-right"></i></button>
+        <div class="gallery-dots" id="galleryDots"></div>
+      </div>
+      <div class="modal-info">
+        <h3 id="modalTitle"></h3>
+        <p class="modal-subtitle" id="modalSubtitle"></p>
+        
+        <div class="modal-details">
+          <div class="detail-item">
+            <h5><i class="fas fa-calendar"></i> Ano</h5>
+            <p id="modalYear"></p>
+          </div>
+          <div class="detail-item">
+            <h5><i class="fas fa-tachometer-alt"></i> Quilometragem</h5>
+            <p id="modalKM"></p>
+          </div>
+          <div class="detail-item">
+            <h5><i class="fas fa-cog"></i> Transmissão</h5>
+            <p id="modalTransmission"></p>
+          </div>
+          <div class="detail-item">
+            <h5><i class="fas fa-gas-pump"></i> Combustível</h5>
+            <p id="modalFuel"></p>
+          </div>
+          <div class="detail-item">
+            <h5><i class="fas fa-palette"></i> Cor</h5>
+            <p id="modalColor"></p>
+          </div>
+          <div class="detail-item">
+            <h5><i class="fas fa-door-closed"></i> Portas</h5>
+            <p id="modalDoors"></p>
+          </div>
+        </div>
+        
+        <div class="modal-equipamentos">
+          <h4><i class="fas fa-list-check"></i> Equipamentos e Opcionais</h4>
+          <div class="modal-equipamentos-grid" id="modalEquipamentos"></div>
+        </div>
+        
+        <div class="modal-price">
+          <div class="preco" id="modalPrice"></div>
+          <small>Valor à vista. Consulte condições de financiamento.</small>
+          <div class="modal-actions">
+            <a href="#" id="modalWhatsapp" target="_blank">
+              <i class="fab fa-whatsapp"></i> Consultar
+            </a>
+            <a href="#" class="secondary" id="modalTestDrive">
+              <i class="fas fa-car"></i> Agendar Test Drive
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de Zoom (Lightbox) -->
+<div class="zoom-overlay" id="zoomModal">
+  <button class="zoom-close" id="zoomClose">
+    <i class="fas fa-times"></i>
+  </button>
+  <button class="zoom-btn prev" id="zoomPrev">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  <button class="zoom-btn next" id="zoomNext">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+  <img src="" alt="Zoom imagem" id="zoomImage">
+  <div class="zoom-counter" id="zoomCounter">1 / 5</div>
+</div>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-column">
+      <h4 id="footerAboutTitle">M3 Autos</h4>
+      <p id="footerAboutText">Concessionária especializada em veículos premium com procedência garantida e atendimento personalizado.</p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    
+    <div class="footer-column">
+      <h4>Contato</h4>
+      <a href="#" id="footerAddress"><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000 - São Paulo, SP</a>
+      <a href="tel:+5511999999999" id="footerPhone"><i class="fas fa-phone"></i> (11) 99999-9999</a>
+      <a href="mailto:contato@m3autos.com" id="footerEmail"><i class="fas fa-envelope"></i> contato@m3autos.com</a>
+    </div>
+    
+    <div class="footer-column">
+      <h4 id="footerHoursTitle">Horários</h4>
+      <p><strong id="footerHoursMonday">Segunda a Sexta:</strong> 9h às 19h</p>
+      <p><strong id="footerHoursSaturday">Sábados:</strong> 9h às 17h</p>
+      <p><strong id="footerHoursSunday">Domingos e Feriados:</strong> Fechado</p>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p id="footerCopyright">© 2026 • M3 Autos • Todos os direitos reservados</p>
+    <p>Desenvolvido com <i class="fas fa-heart" style="color:#ff4757;"></i> para amantes de carros</p>
+  </div>
+</footer>
+
+<!-- Modal de Login Admin -->
+<div class="login-modal-overlay" id="loginModal">
+  <div class="login-modal">
+    <button class="login-close" id="loginClose"><i class="fas fa-times"></i></button>
+    <div class="login-container">
+      <div class="login-image" style="background-image: url('login_bg_premium_car_1770058630919.png');">
+        <div class="login-image-overlay">
+          <div class="login-brand">
+            <i class="fas fa-car-side"></i>
+            <span>M3 AUTOS</span>
+          </div>
+          <div class="login-quote">
+            "Potência e sofisticação no gerenciamento do seu estoque."
+          </div>
+        </div>
+      </div>
+      <div class="login-content">
+        <div class="login-header">
+          <div class="security-badge">
+            <i class="fas fa-lock"></i>
+          </div>
+          <h3>Área Administrativa</h3>
+          <p>Seja bem-vindo de volta! Por favor, identifique-se.</p>
+        </div>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="loginEmail">E-mail Corporativo</label>
+            <div class="input-with-icon">
+              <i class="fas fa-envelope"></i>
+              <input type="email" id="loginEmail" placeholder="exemplo@m3autos.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Chave de Acesso</label>
+            <div class="input-with-icon">
+              <i class="fas fa-key"></i>
+              <input type="password" id="loginPassword" placeholder="Sua senha secreta" required>
+              <button type="button" id="togglePassword" class="btn-toggle-password">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+          <div class="form-options">
+            <label class="checkbox-container">
+              <input type="checkbox" id="rememberMe">
+              <span class="checkmark"></span>
+              Lembrar-me
+            </label>
+            <a href="#" class="forgot-link">Esqueci a senha</a>
+          </div>
+          <button type="submit" class="login-btn">
+            <span>Acessar Painel</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </form>
+        <div id="loginError" class="login-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="adminTextToolbar" class="admin-toolbar">
+  <div class="toolbar-label">Cor do Texto:</div>
+  <input type="color" id="adminColorPicker" value="#ffffff">
+  <button id="adminResetColor" title="Resetar Cor"><i class="fas fa-undo"></i></button>
+</div>
+
+<button id="adminSaveBtn" class="admin-save-btn">
+    <i class="fas fa-save"></i> Salvar Tudo
+</button>
+
+<script type="module" src="js/script.js"></script>
+
+</body>
+</html>
