@@ -370,10 +370,7 @@ function openCarModal(carId) {
   
   // Atualizar links do modal
   const modalWhatsapp = document.getElementById('modalWhatsapp');
-  const modalTestDrive = document.getElementById('modalTestDrive');
-  
   modalWhatsapp.href = `https://wa.me/${storeWhatsapp}?text=Olá,%20tenho%20interesse%20no%20${encodeURIComponent(carro.modelo)}%20${carro.ano}`;
-  modalTestDrive.href = `https://wa.me/${storeWhatsapp}?text=Olá,%20gostaria%20de%20agendar%20um%20test%20drive%20no%20${encodeURIComponent(carro.modelo)}%20${carro.ano}`;
   
   // Abrir modal e atualizar URL
   carModal.classList.add('active');
