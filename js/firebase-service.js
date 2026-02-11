@@ -1,4 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+console.log("M3 Autos - Firebase Service v1.0.1 - Hardcoded Config Registered");
 import { 
   getFirestore, 
   collection, 
