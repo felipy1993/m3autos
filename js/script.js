@@ -863,6 +863,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const adminPanel = document.getElementById('adminPanel');
         if (adminPanel) adminPanel.style.display = 'block';
         
+        // Ativar modo administrativo visual
+        document.body.classList.add('admin-logged-in');
+        
         // Resetar para a primeira aba (Dashboard)
         const dashboardTab = document.querySelector('[data-tab="dashboard"]');
         if (dashboardTab) dashboardTab.click();
@@ -873,7 +876,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const adminPanel = document.getElementById('adminPanel');
         if (adminPanel) adminPanel.style.display = 'none';
         
-        document.body.classList.remove('tab-veiculos-active', 'tab-conteudo-active');
+        // Desativar modo administrativo visual
+        document.body.classList.remove('admin-logged-in', 'tab-veiculos-active', 'tab-conteudo-active');
         setPageEditMode(false); 
     }
   });

@@ -2222,3 +2222,62 @@ footer {
   filter: brightness(1.2);
   text-decoration: underline;
 }
+
+/* ===== ADMIN CARD BUTTONS ===== */
+.admin-card-actions {
+  display: none;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Mostrar apenas quando usuário está logado */
+body.admin-logged-in .admin-card-actions {
+  display: flex;
+}
+
+.admin-card-actions button {
+  flex: 1;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.btn-edit {
+  background: var(--blue);
+  color: white;
+}
+
+.btn-edit:hover {
+  background: var(--blue2);
+  transform: translateY(-2px);
+}
+
+.btn-toggle-sold {
+  background: var(--yellow);
+  color: #0b0e14;
+}
+
+.btn-toggle-sold:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+.btn-delete {
+  background: var(--red);
+  color: white;
+}
+
+.btn-delete:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
